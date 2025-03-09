@@ -1,15 +1,22 @@
+Bio-Fingerprint-Typing-Machine-learning-Driven-Blood-Group-Prediction-Using-Dermatoglyphic-Features
+
 ![image](https://github.com/user-attachments/assets/98ee8ef3-6613-4479-b042-0b5054d2a450)
+                            Figure 1 Cany Edge
 ![image](https://github.com/user-attachments/assets/fd2c86aa-09ca-4f04-a0ac-864e57a90c82)
+                        Figure 2 Data preproceesing stage
 ![image](https://github.com/user-attachments/assets/f956d71f-c2f9-4362-aad6-be116187441e)
+                           Fig  System Architecture
 ![image](https://github.com/user-attachments/assets/3f71d66a-8468-4536-9e3f-3b5452e0afb8)
-Abstract— This research employs a CNN model to classify blood types from fingerprint photos. Fingerprint pictures from eight blood groups A+, A-, B+, B-, AB+, AB-, O+, and O- are included in the datasets. To improve image quality, the preprocessing step uses Canny edge detection, Gaussian blurring, and histogram equalisation. To ensure better model generalisation, augmentation and normalisation are done using an Image Data Generator. Multiple convolutional and pooling layers make up the CNN model, which is used to extract pertinent characteristics from fingerprint images. Automated blood group classification using fingerprint photos is made possible by saving the trained model for use in future predictions. By offering a non-invasive technique for blood type identification, this strategy improves healthcare accessibility and advances biometric-based medical applications.
+                                    A+
+                          Figure 3 output detected
+
+Abstract—
+This research employs a CNN model to classify blood types from fingerprint photos. Fingerprint pictures from eight blood groups A+, A-, B+, B-, AB+, AB-, O+, and O- are included in the datasets. To improve image quality, the preprocessing step uses Canny edge detection, Gaussian blurring, and histogram equalisation. To ensure better model generalisation, augmentation and normalisation are done using an Image Data Generator. Multiple convolutional and pooling layers make up the CNN model, which is used to extract pertinent characteristics from fingerprint images. Automated blood group classification using fingerprint photos is made possible by saving the trained model for use in future predictions. By offering a non-invasive technique for blood type identification, this strategy improves healthcare accessibility and advances biometric-based medical applications.
 Keywords—Blood Group Classification, Non-Invasive Blood Group Detection, Data Augmentation, TensorFlow & Keras, Fingerprint Recognition, CNN, Image Processing, Histogram Equalisation, Gaussian Blur, Canny Edge Detection, Deep Learning, Biometric Identification, Medical Image Analysis
 
 I.Introduction
 In forensic applications, transfusion safety, and medical diagnostics, blood group classification is essential. Conventional blood typing techniques include intrusive procedures and chemical reagents, which can take a long time and call for skilled personnel. A different method for classifying blood groups using biometric data like fingerprints is provided by recent developments in deep learning and computer vision. The goal of this research is to create a deep learning-based, non-invasive system that uses CNN to accurately identify blood types from fingerprint scans.
-
 To improve fingerprint photos for improved feature extraction, image processing techniques like Canny edge detection, Gaussian blur, and histogram equalisation are used. A dataset of fingerprint photos with various blood group labels is used to train a CNN-based deep learning model. To enhance generalisation and make sure the model works well on unseen samples, data augmentation and normalisation are used.
-
 This method offers a quick and automated way to identify blood groups while lowering reliance on conventional blood
 testing, which has enormous promise in the healthcare industry. The system can offer a dependable, non-invasive, and scalable solution for medical applications by combining deep learning and image processing. Larger datasets, better model architectures.
 
@@ -21,19 +28,25 @@ III.PROPOSED METHODOLOGY
 
 2.Data Splitting and Augmentation 
    Rotation, flipping, scaling, and other data augmentation techniques are used to increase the model's generalisation and avoid overfitting. This guarantees that the model picks up a variety of patterns from the fingerprint pictures.
+
 3.DL Model
    A CNN is made to classify blood groups based on fingerprints. The model uses max-pooling layers to minimise spatial dimensions after several convolutional layers for feature extraction. The final output layer classifies images into one of the eight blood types using the softmax activation function, while hidden layers employ the ReLU activation function to add non-linearity. To increase learning efficiency, the model is optimised using the Adam optimiser after being trained using the categorical cross-entropy loss function.
+
 4.Training and Assessing Models
 To maximise performance, the enhanced dataset with several epochs is used to train the CNN model. To determine how successfully the model generalises to new data, accuracy and loss measures are calculated as part of the evaluation process. Techniques like dropout layers are employed to avoid overfitting, while hyperparameter adjustment is done to maximise model performance. The model is saved and ready for deployment as soon as it produces findings that are satisfactory.
+
 5. Implementation Utilizing Streamlit
 Streamlit, an interactive web platform, is used to deploy the trained CNN model for real-time blood group prediction. Users can upload fingerprint photos through an easy-to-use interface, and the backend system processes them. The relevant blood group is then predicted by the trained CNN model after analysing the fingerprint data. Users may quickly and accurately determine their blood group thanks to the Streamlit interface, which guarantees a seamless, real-time experience with easy accessibility.
+
 A.Model Architechure
 Multiple layers make up the proposed CNN, which is intended to extract pertinent fingerprint information and categorise them into blood groups. A MaxPooling2D layer that lowers the spatial dimensions while maintaining significant features comes after the Conv2D layer, which starts the model with 32 filters of size (3x3). In order to gradually acquire increasingly complicated fingerprint patterns, this pattern repeats with increasing filter sizes.The ReLU activation function is applied by each convolutional layer, guaranteeing non-linearity and effective feature learning. After each convolution, the spatial dimensions are cut in half by the max-pooling layers (2x2).
 Following feature extraction, the model employs a Flatten layer to transform a 25,088-size 1D vector. A fully connected Dense layer with 128 neurones receives this vector and uses it to learn high-level representations. The fingerprint is categorised into one of the eight blood groups by a final dense layer comprising eight neurones that uses the softmax activation function. To ensure effective learning, the model's 3,305,672 trainable parameters are optimised using Adam optimiser.This deep architecture is appropriate for fingerprint-based blood group prediction since it improves feature detection and classification accuracy.
+
 B.Training Process
 A collection of fingerprint pictures labelled with relevant blood types was fed into the proposed CNN model during the training phase. Since there were several classes in the classification challenge.Faster convergence was ensured by the effective weight updates provided by the Adam optimiser. Data augmentation methods like rotation, flipping, and zoom were used to improve generalisation and avoid overfitting after the dataset was divided into training and validation sets. 
 
 Batch normalisation was used to stabilise learning during the model's multi-epoch training. In order to achieve the best possible balance between underfitting and overfitting, performance indicators like as accuracy and loss were tracked throughout training. Early stopping was then used to terminate training when validation loss stopped getting better.
+
 IV. Workflow
 1. Preparing and augmenting data
 Gathering and preparing fingerprint photos is the initial stage in the project procedure. Preprocessing guarantees consistency in the dataset because raw photos can differ in size, orientation, and quality. For consistency across the dataset, the photos are scaled to a fixed size of 128x128 pixels. To further enhance the model's convergence during training, pixel values are normalised. Rotation, flipping, zooming, and brightness modifications are examples of data augmentation strategies used to improve the model's generalisation ability and avoid overfitting. By increasing the dataset's diversity without requiring more data gathering, this step enables the model to pick up more reliable features.
@@ -46,6 +59,7 @@ Gathering and preparing fingerprint photos is the initial stage in the project p
 3. Implementation Utilising Streamlit
 
 Streamlit, a lightweight and interactive web framework, is used to deploy the model once its performance is satisfactory. Users can contribute fingerprint pictures for real-time blood group classification using the trained model incorporated into an intuitive web interface. The preprocessing pipeline is used when a picture is submitted, and then model inference is used to produce a prediction. The outcome is shown on the Streamlit interface quickly, giving users a smooth and simple experience. Additionally, the interface gives users the ability to upload multiple photographs, examine categorisation confidence scores, and effectively engage with the system. This deployment strategy makes the system usable for practical real-world applications without necessitating sophisticated technical knowledge.
+
 V. DATA ACQUISTION
 
 1. Selection of data sources
@@ -84,7 +98,6 @@ Metric	Value
 Training Accuracy	0.8428
 Training Loss	0.5274
 Validation Loss	0.4802
-
 
 All things considered, the model's high accuracy and minimal validation loss attest to its efficacy in blood group classification. The findings imply that automated blood group detection, which is essential for transfusion procedures and medical diagnostics, may benefit from deep learning-based classification. To further increase classification accuracy and lower misclassification errors, future developments might involve growing the dataset, adjusting hyperparameters, and incorporating more deep learning methods.
 
